@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class FavoriteQuote extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'quote',
+        'character', 
+        'image',
+        'character_direction'
+    ];
+}
