@@ -12,11 +12,24 @@ Route::get('/random', [SimpsonsController::class, 'randomCharacter'])->name('ran
 // Personaje por ID
 Route::get('/character/{id}', [SimpsonsController::class, 'characterById'])->name('character');
 
+// Locacion por ID
+// Ruta dada por el API ---> https://thesimpsonsapi.com/api/locations/1
+Route::get('/locationscharacter/{id}', [SimpsonsController::class, 'locationDetails'])->name('location.details');
+
 // Galería de personajes
 Route::get('/gallery', [SimpsonsController::class, 'gallery'])->name('gallery');
 
-// Búsqueda
-Route::get('/search', [SimpsonsController::class, 'search'])->name('search');
+// En routes/web.php
+Route::get('/locations/{page?}', [SimpsonsController::class, 'locations'])
+    ->name('locations')
+    ->where('page', '[0-9]+');
+
+/*
+// Detalles de una location específica
+Route::get('/locations/{id}', [SimpsonsController::class, 'locationDetails'])
+    ->name('location.details')
+    ->where('id', '[0-9]+');
+*/
 
 // API endpoints
 Route::get('/api/random', [SimpsonsController::class, 'apiRandom']);
